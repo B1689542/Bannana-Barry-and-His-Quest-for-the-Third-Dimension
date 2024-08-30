@@ -16,7 +16,7 @@ func _physics_process(delta):
 	velocity.y += -gravity * delta
 	get_input()
 	move_and_slide()
-	
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
