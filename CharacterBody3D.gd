@@ -4,6 +4,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 4.0  # movement speed
 var jump_speed = 6.0  # determines jump height
 var mouse_sensitivity = 0.002  # turning speed
+var moveturnhandling = [["strafe_left", "strafe_right", "move_forward", "move_back"],[]]
 
 func get_input():
 	var input = Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_back")
@@ -19,5 +20,10 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
+		$MeshInstance3D.rotate_y(-(-event.relative.x * mouse_sensitivity))
+		$CollisionShape3D.rotate_y(-(-event.relative.x * mouse_sensitivity))
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
+	for i in range(len(moveturnhandling[0])):
+		if event.is_action_pressed(moveturnhandling[0][i]):
+			print("works")

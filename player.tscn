@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_pnamh"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w3hhb"]
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6vf3r"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tx3kt"]
@@ -11,16 +9,12 @@ top_radius = 0.2
 bottom_radius = 0.001
 height = 0.5
 
-[node name="player" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w3hhb"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.94679, -0.112115, 0.301694, 2.51382e-08, 0.937367, 0.348343, -0.321853, -0.329808, 0.887489, 1.76681, 2.37008, 2.90369)
+[node name="player" type="Node3D"]
 
 [node name="Character" type="CharacterBody3D" parent="."]
 script = ExtResource("1_pnamh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
-shape = SubResource("CapsuleShape3D_w3hhb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Character"]
 mesh = SubResource("CapsuleMesh_6vf3r")
@@ -29,3 +23,9 @@ skeleton = NodePath("../..")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Character/MeshInstance3D"]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0.474553, -0.482873)
 mesh = SubResource("CylinderMesh_tx3kt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
+shape = SubResource("CapsuleShape3D_w3hhb")
+
+[node name="Camera3D" type="Camera3D" parent="Character"]
+transform = Transform3D(0.94679, -0.112115, 0.301694, 2.51382e-08, 0.937367, 0.348343, -0.321853, -0.329808, 0.887489, 1.76681, 2.37008, 2.90369)
