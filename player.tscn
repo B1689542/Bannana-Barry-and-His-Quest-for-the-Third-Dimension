@@ -13,11 +13,11 @@ height = 0.5
 
 [node name="player" type="Node3D"]
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.94679, -0.112115, 0.301694, 2.51382e-08, 0.937367, 0.348343, -0.321853, -0.329808, 0.887489, 1.76681, 2.37008, 2.90369)
+
 [node name="Character" type="CharacterBody3D" parent="."]
 script = ExtResource("1_pnamh")
-
-[node name="Camera3D" type="Camera3D" parent="Character"]
-transform = Transform3D(0.94679, -0.112115, 0.301694, 2.51382e-08, 0.937367, 0.348343, -0.321853, -0.329808, 0.887489, 1.76681, 2.37008, 2.90369)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
 shape = SubResource("CapsuleShape3D_w3hhb")
