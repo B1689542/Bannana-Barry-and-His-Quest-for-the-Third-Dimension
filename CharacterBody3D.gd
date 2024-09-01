@@ -14,6 +14,7 @@ func get_input():
 	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.z * speed
+	$MeshInstance3D.look_at(transform.origin + velocity, Vector3(0, 1, 0))
 
 func turnfunc():
 	pass
