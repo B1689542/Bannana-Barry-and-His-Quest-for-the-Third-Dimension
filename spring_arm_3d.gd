@@ -10,5 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _input(event: InputEvent) -> void:
-	pass
+func _input(event):
+	if event is InputEventMouseMotion:
+		print("Mouse Motion at: ", event.position)
