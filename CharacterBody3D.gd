@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+#var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 4.0  # movement speed
 var jump_speed = 6.0  # determines jump height
 var mouse_sensitivity = 0.002  # turning speed
@@ -13,8 +13,8 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	$MeshInstance3D.look_at(transform.origin + velocity, Vector3(0, 1, 0))
-	velocity.y += -gravity * delta
+	$MeshInstance3D.look_at(transform.origin + velocity + Vector3(0,1,0), Vector3(0, 1, 0))
+	#velocity.y += -gravity * delta
 	move_and_slide()
 
 func _unhandled_input(event):
@@ -22,5 +22,6 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$MeshInstance3D.rotate_y(-(-event.relative.x * mouse_sensitivity))
 		$CollisionShape3D.rotate_y(-(-event.relative.x * mouse_sensitivity))
+		
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
