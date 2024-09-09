@@ -29,7 +29,7 @@ mesh = SubResource("CylinderMesh_tx3kt")
 shape = SubResource("CapsuleShape3D_w3hhb")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.758134, 0.652098, 0, -0.652098, 0.758134, 0, 0.778, 0)
+transform = Transform3D(0.707107, -0.461103, 0.536082, 0, 0.758134, 0.652098, -0.707107, -0.461103, 0.536082, 0, 0.778, 0)
 shape = SubResource("SphereShape3D_14nra")
 spring_length = 3.5
 margin = 2.0
