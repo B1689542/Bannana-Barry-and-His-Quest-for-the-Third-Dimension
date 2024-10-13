@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event is InputEventMouseMotion:
 		print("Mouse Motion at: ", event.position)
-		#rotate_y(.005 * -event.relative.x)
-		test = transform.basis.z.x
+		rotate_y(.005 * -event.relative.x)
+		test = transform.basis.x.x
 		rotate_x(-test)
-		rotate_x(.005 * test * .5)
-		#rotate_z(.005 * test * -.5) #havin a spot of bother with this one
+		rotate_x((.005 * event.relative.y * .5)+test)
+		#rotate_z((.005 * event.relative.y * .5)+test) #havin a spot of bother with this one
