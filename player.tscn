@@ -14,5 +14,3 @@ shape = ExtResource("2_872c7")
 position = Vector2(4, 1)
 sprite_frames = ExtResource("3_m7ymk")
 animation = &"walk"
-frame = 7
-frame_progress = 0.967572

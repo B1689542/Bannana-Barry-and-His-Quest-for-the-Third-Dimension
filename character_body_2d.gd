@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -1000.0
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * 2
+		velocity += get_gravity() * delta * 3
 		$CollisionShape2D/AnimatedSprite2D.stop()
 	
 
