@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl0cxg20txyu4"]
+[gd_scene load_steps=11 format=3 uid="uid://cl0cxg20txyu4"]
 
 [ext_resource type="PackedScene" uid="uid://coc588ljphcue" path="res://player.tscn" id="1_1xkfk"]
 
@@ -12,17 +12,28 @@ size = Vector2(42, 1588)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xn2i6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf88r"]
+size = Vector2(527.5, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s0wki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj4x0"]
+size = Vector2(394.625, 61)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5nx0y"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o06ck"]
 size = Vector2(0.219999, 1)
 
 [node name="world" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_1xkfk")]
-position = Vector2(550, 300)
+position = Vector2(137, -145)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
+limit_top = -978
 limit_right = 3078
 limit_bottom = 648
 
@@ -64,6 +75,29 @@ shape = SubResource("RectangleShape2D_ytp2e")
 position = Vector2(-1.99992, -0.250001)
 scale = Vector2(3120, 38.4999)
 texture = SubResource("CanvasTexture_dppcq")
+
+[node name="countertop" type="CollisionShape2D" parent="collisions"]
+position = Vector2(352.25, 316)
+scale = Vector2(1, 670)
+shape = SubResource("RectangleShape2D_uf88r")
+
+[node name="Sprite2D" type="Sprite2D" parent="collisions/countertop"]
+position = Vector2(-3.25002, 0)
+scale = Vector2(534, 1)
+texture = SubResource("CanvasTexture_s0wki")
+
+[node name="shelf_top" type="CollisionShape2D" parent="collisions"]
+position = Vector2(279, -646)
+shape = SubResource("RectangleShape2D_kj4x0")
+
+[node name="Sprite2D" type="Sprite2D" parent="collisions/shelf_top"]
+position = Vector2(-0.499985, 0.5)
+scale = Vector2(395, 61)
+texture = SubResource("CanvasTexture_5nx0y")
+
+[node name="shelf_middle" type="CollisionShape2D" parent="collisions"]
+position = Vector2(281.688, -380)
+shape = SubResource("RectangleShape2D_kj4x0")
 
 [node name="door" type="Marker2D" parent="."]
 position = Vector2(3052, 542)
