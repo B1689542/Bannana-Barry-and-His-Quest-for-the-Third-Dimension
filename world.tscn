@@ -1,31 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl0cxg20txyu4"]
+[gd_scene load_steps=4 format=3 uid="uid://cl0cxg20txyu4"]
 
 [ext_resource type="PackedScene" uid="uid://coc588ljphcue" path="res://player.tscn" id="1_1xkfk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytp2e"]
-size = Vector2(3115.94, 39)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_dppcq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1yhf"]
-size = Vector2(42, 1588)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_xn2i6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf88r"]
-size = Vector2(527.5, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_s0wki"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj4x0"]
-size = Vector2(394.625, 61)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_5nx0y"]
+[ext_resource type="Texture2D" uid="uid://cuxxf0272i5lw" path="res://assets/textures/World/BACKGROUND.png" id="2_o2rjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o06ck"]
 size = Vector2(0.219999, 1)
 
 [node name="world" type="Node2D"]
+position = Vector2(0, 979)
 
 [node name="player" parent="." instance=ExtResource("1_1xkfk")]
 position = Vector2(137, -145)
@@ -33,71 +15,15 @@ position = Vector2(137, -145)
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
-limit_top = -978
+limit_top = 0
 limit_right = 3078
-limit_bottom = 648
+limit_bottom = 1627
 
 [node name="collisions" type="StaticBody2D" parent="."]
 position = Vector2(-46, -42)
 
-[node name="floor" type="CollisionShape2D" parent="collisions"]
-position = Vector2(1608, 670.5)
-shape = SubResource("RectangleShape2D_ytp2e")
-
-[node name="Sprite2D" type="Sprite2D" parent="collisions/floor"]
-position = Vector2(-1.99992, 1.23978e-05)
-scale = Vector2(3120, 38.9999)
-texture = SubResource("CanvasTexture_dppcq")
-
-[node name="wall" type="CollisionShape2D" parent="collisions"]
-position = Vector2(67, -104)
-shape = SubResource("RectangleShape2D_f1yhf")
-
-[node name="Sprite2D" type="Sprite2D" parent="collisions/wall"]
-position = Vector2(-1.90735e-06, -2.26498e-06)
-scale = Vector2(42, 1588)
-texture = SubResource("CanvasTexture_xn2i6")
-
-[node name="wall2" type="CollisionShape2D" parent="collisions"]
-position = Vector2(3145, -104)
-shape = SubResource("RectangleShape2D_f1yhf")
-
-[node name="Sprite2D" type="Sprite2D" parent="collisions/wall2"]
-position = Vector2(-21.9999, -680)
-scale = Vector2(85.9997, 228)
-texture = SubResource("CanvasTexture_xn2i6")
-
-[node name="celing" type="CollisionShape2D" parent="collisions"]
-position = Vector2(1608, -917)
-shape = SubResource("RectangleShape2D_ytp2e")
-
-[node name="Sprite2D" type="Sprite2D" parent="collisions/celing"]
-position = Vector2(-1.99992, -0.250001)
-scale = Vector2(3120, 38.4999)
-texture = SubResource("CanvasTexture_dppcq")
-
-[node name="countertop" type="CollisionShape2D" parent="collisions"]
-position = Vector2(352.25, 316)
-scale = Vector2(1, 670)
-shape = SubResource("RectangleShape2D_uf88r")
-
-[node name="Sprite2D" type="Sprite2D" parent="collisions/countertop"]
-position = Vector2(-3.25002, 0)
-scale = Vector2(534, 1)
-texture = SubResource("CanvasTexture_s0wki")
-
-[node name="shelf_top" type="CollisionShape2D" parent="collisions"]
-position = Vector2(279, -646)
-shape = SubResource("RectangleShape2D_kj4x0")
-
-[node name="Sprite2D" type="Sprite2D" parent="collisions/shelf_top"]
-position = Vector2(-0.499985, 0.5)
-scale = Vector2(395, 61)
-texture = SubResource("CanvasTexture_5nx0y")
-
-[node name="shelf_middle" type="CollisionShape2D" parent="collisions"]
-position = Vector2(281.688, -380)
-shape = SubResource("RectangleShape2D_kj4x0")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(88, -898, 3080, -898, 3080, -670, 3124, -670, 3124, 651, 1964, 651, 1964, 20, 2358, 20, 2358, -61, 1446, -61, 1446, 20, 1833, 20, 1833, 650, 591, 650, 616, -17, 88, -17, 88, -350, 482, -350, 482, -411, 88, -411, 88, -615, 476, -615, 476, -676, 88, -676, 88, -897, 46, -936, 46, 690, 3166, 690, 3166, -936, 54, -937)
 
 [node name="door" type="Marker2D" parent="."]
 position = Vector2(3052, 542)
@@ -111,3 +37,7 @@ position = Vector2(101, -59)
 position = Vector2(3056, -32)
 scale = Vector2(200, 1360)
 shape = SubResource("RectangleShape2D_o06ck")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1560, -165)
+texture = ExtResource("2_o2rjt")
